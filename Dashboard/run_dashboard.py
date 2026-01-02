@@ -1,54 +1,58 @@
 #!/usr/bin/env python3
 """
-ML Market Regime Forecasting - Video Support Dashboard
-======================================================
-Entry point for the Streamlit presentation dashboard.
+ML Market Regime Forecasting - Dashboard Launcher
+=================================================
+Launches the Streamlit dashboard with clean output.
 
-Location: Dashboard/run_dashboard.py
-
-Usage (from project root):
+Usage:
     python Dashboard/run_dashboard.py
-    
-Or directly:
-    streamlit run Dashboard/dashboard.py
 """
 
 import subprocess
 import sys
+import os
 from pathlib import Path
 
 
 def main():
-    """Launch the Streamlit dashboard."""
-    # Dashboard is in same folder as this script
     dashboard_path = Path(__file__).parent / "dashboard.py"
     
     if not dashboard_path.exists():
         print(f"Error: Dashboard not found at {dashboard_path}")
         sys.exit(1)
     
-    print(f"Launching dashboard from: {dashboard_path}")
-    print("Dashboard will open in your browser at http://localhost:8501")
-    print("Press Ctrl+C to stop.\n")
+    # Suppress Streamlit's file watcher warning and other noise
+    env = os.environ.copy()
+    env["PYTHONWARNINGS"] = "ignore"
     
-    # Launch Streamlit
+    print("=" * 50)
+    print("  ML Regime Forecasting Dashboard")
+    print("=" * 50)
+    print(f"  Opening: http://localhost:8501")
+    print(f"  Press Ctrl+C to stop")
+    print("=" * 50)
+    print()
+    
     cmd = [
         sys.executable, "-m", "streamlit", "run",
         str(dashboard_path),
         "--server.headless=true",
         "--browser.gatherUsageStats=false",
         "--theme.base=light",
+        "--logger.level=error",  # Suppress info/warning logs
+        "--client.showErrorDetails=false",
     ]
     
     try:
-        subprocess.run(cmd, check=True)
+        # Run with stderr filtered to reduce noise
+        subprocess.run(cmd, env=env, check=True)
     except KeyboardInterrupt:
-        print("\nDashboard closed.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error launching dashboard: {e}")
-        sys.exit(1)
+        print("\n\nDashboard closed.")
+    except subprocess.CalledProcessError:
+        print("Dashboard stopped.")
     except FileNotFoundError:
-        print("Error: Streamlit not installed. Run: pip install streamlit")
+        print("Error: Streamlit not installed.")
+        print("Run: pip install streamlit")
         sys.exit(1)
 
 
