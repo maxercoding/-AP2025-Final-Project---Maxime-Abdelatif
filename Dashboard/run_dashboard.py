@@ -5,14 +5,13 @@ ML Market Regime Forecasting - Dashboard Launcher
 Launches the Streamlit dashboard with clean output.
 
 Usage:
-    python Dashboard/run_dashboard.py
+    python Dashboard/run_dashboard.py python &
 """
 
 import subprocess
 import sys
 import os
 from pathlib import Path
-
 
 def main():
     dashboard_path = Path(__file__).parent / "dashboard.py"
@@ -54,7 +53,6 @@ def main():
         print("Error: Streamlit not installed.")
         print("Run: pip install streamlit")
         sys.exit(1)
-
 
 if __name__ == "__main__":
     main()
