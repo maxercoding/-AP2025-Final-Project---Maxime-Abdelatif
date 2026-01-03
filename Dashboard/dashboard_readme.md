@@ -1,4 +1,4 @@
-# Video Presentation Dashboard
+# Video Presentation dashboard
 
 Professional presentation dashboard designed to accompany the live video presentation.  
 **Matches the final teleprompter script exactly.**

@@ -22,10 +22,12 @@ This project implements a machine learning pipeline for detecting market regimes
 ## Quick Start
 
 ### 1. Environment Setup
-“To reproduce results, you must run via ***conda run -n ap2025-maxime*** (running outside this environment is unsupported and may change results).”
 
 # Create conda environment (recommended, reproducible)
 conda env create -f environment.yml || conda env update -f environment.yml --prune
+
+# To reproduce results, you must run via (running outside this environment is unsupported and may change results)
+conda run -n ap2025-maxime***
 
 # Verify and run WITHOUT relying on "conda activate" (avoids wrong Python/interpreter issues)
 conda run -n ap2025-maxime python test_imports.py
