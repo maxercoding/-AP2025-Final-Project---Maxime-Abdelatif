@@ -1,14 +1,15 @@
-# ML Market Regime Detection
+# ML Market Regime Detection and Forecasting for S&P500
 
 **Course:** Data Science and Advanced Programming 2025
 **Author:** Maxime Abdelatif 
+**StudentID:**20416384
 **Date:** January 2026
 
 ---
 
 ## Project Overview
 
-This project implements a machine learning pipeline for detecting market regimes (Bear/Neutral/Bull) in the S&P 500 and using these predictions to inform tactical asset allocation decisions.
+A machine learning project that builds weekly 3-class market regime labels (Bear/Neutral/Bull) for the S&P 500, trains supervised ML models to forecast regimes, and translates predictions into a tactical allocation strategy.
 
 ### Key Features
 
@@ -19,47 +20,67 @@ This project implements a machine learning pipeline for detecting market regimes
 
 ---
 
-## Quick Start
+## Initial Setup
 
-### 1. Environment Setup
-
-# Create conda environment (recommended, reproducible)
-conda env create -f environment.yml || conda env update -f environment.yml --prune
-
-# To reproduce results, you must run via (running outside this environment is unsupported and may change results)
-conda run -n ap2025-maxime***
-
-# Verify and run WITHOUT relying on "conda activate" (avoids wrong Python/interpreter issues)
-conda run -n ap2025-maxime python test_imports.py
-conda run -n ap2025-maxime python main.py
-
-# (Optional) Perfect lockfile mode — guarantees identical conda builds to the author’s machine
-```
-Use this only if you provide explicit-spec.txt in the repo (generated with: conda list --explicit > explicit-spec.txt)
-  conda create -n ap2025-maxime --file explicit-spec.txt
-  conda run -n ap2025-maxime python test_imports.py
-  conda run -n ap2025-maxime python main.py
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/maxercoding/-AP2025-Final-Project---Maxime-Abdelatif.git
+cd -AP2025-Final-Project---Maxime-Abdelatif
 ```
 
-### 2. Verify Installation
+### Step 2: Create the Conda Environment
+This creates an isolated environment with all required dependencies at exact versions:
+```bash
+conda env create -f environment.yml
+```
 
+### Step 3: Activate the Environment
+```bash
+conda activate ap2025-maxime
+```
+
+### Step 4: Verify Installation
+Run this to confirm all packages and modules are working:
 ```bash
 python test_imports.py
 ```
+
 Expected output:
 ```
+================================================================
+ENVIRONMENT CHECK
+================================================================
+Python version: 3.11.14
+✓ Correct environment: ap2025-maxime
+================================================================
+TESTING IMPORTS
+================================================================
+  ✓ numpy (2.4.0)
+  ✓ pandas (2.3.3)
+  ...
+================================================================
 ✓ ALL IMPORTS SUCCESSFUL!
+================================================================
 ```
 
-### 3. Run Full Pipeline
+**If you see "Wrong environment active"**, run:
+```bash
+conda activate ap2025-maxime
+python test_imports.py
+```
 
+## 🏃 Running the Project
+
+### Run the Main Pipeline
 ```bash
 python main.py
 ```
-Or with custom config:
+
+### Optional: Run the Dashboard
 ```bash
-python main.py --config config/config.yaml
+python Dashboard/run_dashboard.py
 ```
+Then open http://localhost:8501 in your browser.
 
 ---
 
@@ -228,21 +249,40 @@ Where σ is rolling 4-week volatility and k=0.3 by default.
 
 ## Troubleshooting
 
-### Import Errors
+### "ResolvePackageNotFound" or version conflicts
+Try updating conda first:
 ```bash
-# Verify all imports work
-python test_imports.py
-
-# If xgboost fails, install separately
-pip install xgboost --break-system-packages
+conda update conda
+conda env create -f environment.yml
 ```
 
-### Memory Issues
-For large datasets or many CV folds:
-```yaml
-run:
-  deterministic: false  # Allow parallel processing
+### Missing packages (ImportError)
+If `test_imports.py` shows missing packages:
+```bash
+# Option 1: Recreate environment (recommended)
+conda env remove -n ap2025-maxime
+conda env create -f environment.yml
+conda activate ap2025-maxime
+
+# Option 2: Install missing package individually
+pip install 
+# Example: pip install xgboost
 ```
+
+### Environment already exists
+Remove it and recreate:
+```bash
+conda env remove -n ap2025-maxime
+conda env create -f environment.yml
+```
+
+### Wrong Python interpreter in VS Code
+1. Open VS Code in the project folder
+2. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows)
+3. Type "Python: Select Interpreter"
+4. Choose `ap2025-maxime` environment
+
+---
 
 ### Missing Data
 Ensure `data/raw/` contains the Excel file with sheets: SPX, TLT, GOLD, VIX
