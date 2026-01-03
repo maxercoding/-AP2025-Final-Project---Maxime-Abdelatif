@@ -2,7 +2,7 @@
 
 **Course:** Data Science and Advanced Programming 2025
 **Author:** Maxime Abdelatif 
-**StudentID:**20416384
+**StudentID:** 20416384
 **Date:** January 2026
 
 ---
@@ -110,6 +110,10 @@ Then open http://localhost:8501 in your browser.
 ├── environment.yml           # Conda environment specification
 ├── README.md                 # Development roadmap and task tracking
 ├── Proposal.md               # Project proposal
+├── Dashboard/                
+    └── dashboard_readme.md   # Roadmap to run and access dashboard
+    └── dashboard.py          # Dashboard configuration
+    └── rundashboard.py       # Dashboard pipeline
 └── results/
     └── runs/
         └── YYYYMMDD_HHMMSS/  # Timestamped run folder

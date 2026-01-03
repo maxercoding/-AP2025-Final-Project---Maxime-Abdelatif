@@ -36,7 +36,7 @@ The dashboard follows the **exact presentation structure**:
 | 9 | Leakage Controls | Technical Approach |
 | 10 | Models & Metrics | Technical Approach |
 
-### 🖥️ LIVE DEMO
+### LIVE DEMO
 
 *`python main.py` and walk through the pipeline*
 
