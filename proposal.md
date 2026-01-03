@@ -1,4 +1,4 @@
-# PROPOSAL.md — Multi-Model ETF Market Forecasting System (Weekly)
+# PROPOSAL.md — Multi-Model ETF Market Forecasting System (Archive)
 
 ## What I will build
 I will build a **weekly market forecasting pipeline** that uses supervised machine learning to predict the **next market state** of US equities. The core objective is forecasting: estimating the **forward market outcome** (over a fixed horizon) from information available at time *t*, then translating that forecast into an interpretable **market regime signal** (e.g., Bear / Neutral / Bull) for analysis and comparison.

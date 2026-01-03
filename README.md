@@ -78,7 +78,7 @@ python main.py
 
 ### Optional: Run the Dashboard
 ```bash
-python Dashboard/run_dashboard.py
+python Dashboard/run_dashboard.py &
 ```
 Then open http://localhost:8501 in your browser.
 
