@@ -35,4 +35,4 @@ model:
   
   # Output control
   verbose: 1              # 0=silent, 1=summary, 2=debug
-  table_rows: 5           # Max rows to display in tables
+  table_rows: 5           # Max rows displayed in tables

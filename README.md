@@ -69,7 +69,7 @@ conda activate ap2025-maxime
 python test_imports.py
 ```
 
-## 🏃 Running the Project
+## Running the Project
 
 ### Run the Main Pipeline
 ```bash

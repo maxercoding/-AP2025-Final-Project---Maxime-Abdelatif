@@ -96,7 +96,6 @@ from sklearn.metrics import silhouette_score, adjusted_rand_score
 
 from src.utils import log, log_section, log_debug
 
-
 # =============================================================================
 # COLUMN DEFINITIONS (used throughout the project)
 # =============================================================================

@@ -14,7 +14,6 @@ import pandas as pd
 
 from src.utils import log, log_section, log_debug
 
-
 # =============================================================================
 # INDIVIDUAL FEATURE FUNCTIONS (exactly as in notebook Cell 2)
 # =============================================================================

@@ -15,7 +15,6 @@ import pandas as pd
 
 from src.utils import log, log_section, log_debug, assert_positive_prices
 
-
 # =============================================================================
 # COLUMN MAPPING
 # =============================================================================

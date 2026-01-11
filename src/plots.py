@@ -27,7 +27,6 @@ from matplotlib.colors import LinearSegmentedColormap
 
 from src.utils import save_fig, show_fig, log
 
-
 # =============================================================================
 # FIGURE CONFIGURATION (matches notebook exactly)
 # =============================================================================

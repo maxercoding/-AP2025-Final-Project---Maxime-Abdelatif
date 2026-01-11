@@ -74,7 +74,6 @@ def _get_n_jobs() -> int:
     """Return n_jobs value based on deterministic mode."""
     return 1 if _DETERMINISTIC else -1
 
-
 # =============================================================================
 # HYPERPARAMETER GRIDS (Cell 4C)
 # =============================================================================

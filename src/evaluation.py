@@ -145,7 +145,6 @@ from sklearn.metrics import (
 
 from src.utils import log, log_section, log_debug
 
-
 # =============================================================================
 # LABEL ENCODING (Cell 4A) - for XGBoost compatibility
 # =============================================================================
